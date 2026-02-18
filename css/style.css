@@ -1,0 +1,294 @@
+/* 1. Global: Fix the 'Huge Load' and ensure no cutting */
+section.about-section .about-image {
+    width: 100% !important;
+    height: auto !important; 
+    /* Limit height to 70% of the screen height so it never explodes on load */
+    max-height: 70vh !important; 
+    /* This is the safety net: keeps the image under control */
+    max-width: 450px !important; 
+    object-fit: contain !important; 
+    display: block;
+    margin-left: auto;
+    border-radius: 10px;
+    /* Prevents the 'gray box' look if the image is narrower than the column */
+    background-color: transparent !important;
+}
+
+/* 2. Tablet range (768px - 991px): Match the text block height */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    section.about-section .row {
+        display: flex !important;
+        align-items: center !important; 
+    }
+
+    section.about-section .about-image {
+        max-height: 450px !important; /* Fixed limit for tablet views */
+        width: 100% !important;
+    }
+}
+
+/* 3. Mobile range (Below 768px): Center and scale down */
+@media screen and (max-width: 767px) {
+    section.about-section .about-image {
+        max-height: 350px !important;
+        max-width: 280px !important; /* Smaller profile for mobile phones */
+        margin: 0 auto 30px auto !important;
+    }
+    
+    section.about-section .custom-text-block {
+        text-align: center !important;
+    }
+
+    section.about-section .social-icon {
+        justify-content: center !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .navbar {
+        background-color: #ffffff !important;
+        /* Ensures the navbar doesn't cover the screen during load */
+        position: sticky !important; 
+        top: 0;
+    }
+    
+    /* This ensures the mobile menu scrolls if you have too many links */
+    .navbar-collapse {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+}
+
+/* Ensure the toggle button is at the very front */
+.navbar-toggler {
+    position: relative;
+    z-index: 10001 !important;
+    padding: 10px;
+}
+
+/* Ensure the navbar-collapse doesn't have a forced 'hidden' state */
+@media screen and (max-width: 991px) {
+    .navbar-collapse.collapse {
+        display: none; /* Default state */
+    }
+    
+    .navbar-collapse.collapse.show {
+        display: block !important; /* Forces it to show when triggered */
+        background-color: #fff;
+        width: 100%;
+    }
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3Cpath stroke='rgba(0,0,0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(0,0,0,0.1) !important;
+}
+@media screen and (max-width: 992px) {
+    /* 1. Hide the horizontal menu early */
+    .navbar-expand-lg .navbar-collapse {
+        display: none !important;
+    }
+
+    /* 2. Show the hamburger button (X) earlier */
+    .navbar-expand-lg .navbar-toggler {
+        display: block !important;
+    }
+
+    /* 3. Fix the 'PRexport' text from merging */
+    .navbar-brand {
+        margin-right: 0;
+        max-width: 75%;
+    }
+    
+    /* 4. Ensure the menu looks correct when opened in this range */
+    .navbar-collapse.show {
+        display: block !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        padding: 20px;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+}
+
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .navbar-nav .nav-link {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        font-size: 14px !important; /* Slightly smaller text to fit */
+    }
+
+    .navbar-brand span {
+        font-size: 18px !important;
+    }
+
+    .navbar-brand small {
+        display: none; /* Hide the sub-text 'Your One-Stop...' to save space */
+    }
+}
+
+/* Fix the CTA Section Clashing */
+.cta-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Adds breathing room between text and buttons */
+}
+
+/* 1. Handling the buttons to prevent overlap */
+.cta-section .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px; /* Space when buttons wrap */
+}
+
+/* 2. Responsive adjustment for 375px to 1199px */
+@media screen and (max-width: 1199px) {
+    .cta-section {
+        text-align: center !important;
+    }
+
+    .cta-section .ms-auto {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 20px;
+    }
+
+    .cta-section h2 {
+        font-size: 28px !important;
+        line-height: 1.4;
+    }
+
+    .cta-section .col-lg-5 {
+        width: 100% !important; /* Forces stacking */
+    }
+
+    .cta-section .me-4 {
+        margin-right: 0 !important; /* Remove right margin on tablets */
+        margin-bottom: 15px !important; /* Add bottom margin for stacking */
+    }
+
+    /* Make buttons full width on small mobile for better UX */
+    @media screen and (max-width: 480px) {
+        .cta-section .btn {
+            display: flex;
+            width: 100%;
+        }
+    }
+}
+
+/* Responsive Fix for Partner Section (375px to 992px) */
+@media screen and (max-width: 991px) {
+    .volunteer-section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    /* Prevent the form from being too cramped */
+    .volunteer-form {
+        margin-bottom: 50px !important; 
+        padding: 25px;
+    }
+
+    /* Fix the image column */
+    .volunteer-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border-radius: 15px; /* Clean rounded corners */
+    }
+
+    /* Ensure the text block below the image doesn't overlap */
+    .custom-block-body {
+        padding: 20px;
+        position: relative; /* Disables any absolute positioning causing overlap */
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 0 0 15px 15px;
+    }
+}
+
+/* Specific fix for the smaller end of your range (375px+) */
+@media screen and (max-width: 480px) {
+    .volunteer-section h2 {
+        font-size: 24px;
+    }
+    
+    .custom-form {
+        padding: 15px;
+    }
+}
+/* --- PRexport Section 4 (Partner Section) Fix --- */
+
+/* 1. Ensure the main section has enough room for both components */
+#section_4.volunteer-section {
+    height: auto !important;
+    min-height: auto !important;
+    display: block !important;
+}
+
+/* 2. Responsive adjustments for the overlap range (375px to 991px) */
+@media screen and (max-width: 991px) {
+    
+    /* Force the two main columns to stack vertically with space between them */
+    #section_4 .row {
+        display: block !important;
+    }
+
+    #section_4 .col-lg-6 {
+        width: 100% !important;
+        margin-bottom: 40px !important; /* Adds gap between Form and Image */
+    }
+
+    /* 3. Reset the Form Container */
+    .volunteer-form {
+        position: relative !important;
+        z-index: 1;
+        margin-bottom: 30px !important;
+    }
+
+    /* 4. ANTI-OVERLAP: Fix the Image and Text block on the right */
+    .volunteer-image {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 15px 15px 0 0 !important;
+        display: block !important;
+    }
+
+    /* This is likely the "clashing" culprit - we reset it here */
+    #section_4 .custom-block-body {
+        position: relative !important;
+        top: 0 !important;
+        margin-top: 0 !important; /* Removes negative margin that pulls text over images */
+        transform: none !important; /* Stops any "floating" animation */
+        padding: 30px 20px !important;
+        width: 100% !important;
+        background-color: #5bc1ac !important; /* Theme Green */
+        border-radius: 0 0 15px 15px !important;
+        box-shadow: none !important;
+    }
+
+    /* Ensure text color stays readable */
+    #section_4 .custom-block-body h4, 
+    #section_4 .custom-block-body p {
+        color: #ffffff !important;
+    }
+}
+
+/* 5. Mobile specific tweaks (375px to 480px) */
+@media screen and (max-width: 480px) {
+    .volunteer-form {
+        padding: 20px !important;
+    }
+    
+    #section_4 h2 {
+        font-size: 26px !important;
+        text-align: center;
+    }
+}
