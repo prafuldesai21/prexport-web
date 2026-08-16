@@ -1228,140 +1228,145 @@
             </section>
         </main>
 
-        <footer class="site-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-12 mb-4">
-                        <img src="images/logo.png" class="logo img-fluid" alt="">
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12 mb-4">
-                        <h5 class="site-footer-title mb-3">Quick Links</h5>
-
-                        <ul class="footer-menu">
-                            <li class="footer-menu-item"><a href="#section_2" class="footer-menu-link">Our Story</a></li>
-
-                            <li class="footer-menu-item"><a href="#section_5" class="footer-menu-link">Our Certifications</a></li>
-
-                            <li class="footer-menu-item"><a href="#section_3" class="footer-menu-link">Products</a></li>
-
-                            <li class="footer-menu-item"><a href="#section_4" class="footer-menu-link">Be a Partner</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12 mx-auto">
-                        <h5 class="site-footer-title mb-3">Contact Infomation</h5>
-
-                        <p class="text-white d-flex mb-2">
-                            <i class="bi-telephone me-2"></i>
-
-                            <a href="tel: 120-240-9600" class="site-footer-link">
-                                +91 971-477-3131
-                            </a>
-                        </p>
-
-                        <p class="text-white d-flex">
-                            <i class="bi-envelope me-2"></i>
-
-                            <a href="mailto:info@yourgmail.com" class="site-footer-link">
-                                info@prxport.com
-                            </a>
-
-                        </p>
-
-                        <p class="text-white d-flex mt-3">
-                            <i class="bi-geo-alt me-2"></i>
-                            401, Bldg 02, Regency Megacity, Mahuva, Gujarat, India - 364290
-                        </p>
-
-                        <a href="#" class="custom-btn btn mt-3">Get Direction</a>
-                    </div>
-                </div>    
-                <!-- Site Analytics Starts -->
-<div id="prx-counter-container" style="display: block !important; visibility: visible !important; margin-top: 1.5rem !important;">
-    <div style="background: #1e293b !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; border-radius: 8px !important; padding: 15px !important; display: inline-block !important; min-width: 200px !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;">
-        <div style="display: flex !important; align-items: center !important; margin-bottom: 8px !important;">
-            <span style="height: 8px; width: 8px; background-color: #28a745; border-radius: 50%; margin-right: 8px; display: inline-block; box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);"></span>
-            <h5 style="color: #94a3b8 !important; font-size: 0.75rem !important; text-transform: uppercase !important; letter-spacing: 1px !important; margin: 0 !important; font-family: sans-serif !important;">Live Traffic Analytics</h5>
-        </div>
-        <div>
-            <span id="site-display-val" style="display: block !important; color: #ffc107 !important; font-size: 1.8rem !important; font-weight: 700 !important; line-height: 1 !important; font-family: 'Courier New', Courier, monospace !important;">1</span>
-            <span style="color: #cbd5e1 !important; font-size: 0.7rem !important; font-family: sans-serif !important;">Total Visits</span>
-        </div>
-    </div>
-</div>
-
-<script>
-(function() {
-    async function loadSiteStats() {
-        var valElem = document.getElementById('site-display-val');
-        if (!valElem) return;
-
-        var hasVisited = sessionStorage.getItem('prx_v');
-        var workerUrl = 'https://prexportpeoplecounter.prafuldesai21.workers.dev/';
-
-        try {
-            var response = await fetch(workerUrl + '?increment=' + (!hasVisited));
-            if (!response.ok) throw new Error('HTTP ' + response.status);
-            
-            var data = await response.json();
-            var count = data.totalVisits ?? data.totalvisit ?? data.value ?? data.count;
-
-            if (count !== undefined && count !== null) {
-                valElem.innerText = Number(count).toLocaleString();
-                sessionStorage.setItem('prx_v', 'true');
-            }
-        } catch (error) {
-            console.error('Stats Fetch Error:', error);
-        }
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadSiteStats);
-    } else {
-        loadSiteStats();
-    }
-})();
-</script>
-<!-- Site Analytics Ends -->
+    <footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 mb-4">
+                <img src="images/logo.png" class="logo img-fluid" alt="">
             </div>
 
-            <div class="site-footer-bottom">
-                <div class="container">
-                    <div class="row">
+            <div class="col-lg-4 col-md-6 col-12 mb-4">
+                <h5 class="site-footer-title mb-3">Quick Links</h5>
 
-                        <div class="col-lg-6 col-md-7 col-12">
-                            <p class="copyright-text mb-0">Copyright © 2026 <a href="#">PRexport</a> - An Import-Export company.
+                <ul class="footer-menu">
+                    <li class="footer-menu-item"><a href="#section_2" class="footer-menu-link">Our Story</a></li>
+
+                    <li class="footer-menu-item"><a href="#section_5" class="footer-menu-link">Our Certifications</a></li>
+
+                    <li class="footer-menu-item"><a href="#section_3" class="footer-menu-link">Products</a></li>
+
+                    <li class="footer-menu-item"><a href="#section_4" class="footer-menu-link">Be a Partner</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12 mx-auto">
+                <h5 class="site-footer-title mb-3">Contact Information</h5>
+
+                <p class="text-white d-flex mb-2">
+                    <i class="bi-telephone me-2"></i>
+
+                    <a href="tel:+919714773131" class="site-footer-link">
+                        +91 971-477-3131
+                    </a>
+                </p>
+
+                <p class="text-white d-flex">
+                    <i class="bi-envelope me-2"></i>
+
+                    <a href="mailto:info@prxport.com" class="site-footer-link">
+                        info@prxport.com
+                    </a>
+
+                </p>
+
+                <p class="text-white d-flex mt-3">
+                    <i class="bi-geo-alt me-2"></i>
+                    401, Bldg 02, Regency Megacity, Mahuva, Gujarat, India - 364290
+                </p>
+
+                <a href="#" class="custom-btn btn mt-3">Get Direction</a>
+            </div>
+        </div>    
+
+        <!-- Site Analytics Starts -->
+        <div class="row">
+            <div class="col-12">
+                <div id="prx-counter-container" style="display: block !important; visibility: visible !important; margin-top: 1.5rem !important;">
+                    <div style="background: #1e293b !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; border-radius: 8px !important; padding: 15px !important; display: inline-block !important; min-width: 200px !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;">
+                        <div style="display: flex !important; align-items: center !important; margin-bottom: 8px !important;">
+                            <span style="height: 8px; width: 8px; background-color: #28a745; border-radius: 50%; margin-right: 8px; display: inline-block; box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);"></span>
+                            <h5 style="color: #94a3b8 !important; font-size: 0.75rem !important; text-transform: uppercase !important; letter-spacing: 1px !important; margin: 0 !important; font-family: sans-serif !important;">Live Traffic Analytics</h5>
                         </div>
-                        
-                        <div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
-                            <ul class="social-icon">
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-twitter"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-facebook"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-instagram"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="https://www.linkedin.com/in/praful-desai-b818433b0/" class="social-icon-link bi-linkedin"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="https://youtube.com/templatemo" class="social-icon-link bi-youtube"></a>
-                                </li>
-                            </ul>
+                        <div>
+                            <span id="site-display-val" style="display: block !important; color: #ffc107 !important; font-size: 1.8rem !important; font-weight: 700 !important; line-height: 1 !important; font-family: 'Courier New', Courier, monospace !important;">1</span>
+                            <span style="color: #cbd5e1 !important; font-size: 0.7rem !important; font-family: sans-serif !important;">Total Visits</span>
                         </div>
-                        
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+
+        <script>
+        (function() {
+            async function loadSiteStats() {
+                var valElem = document.getElementById('site-display-val');
+                if (!valElem) return;
+
+                var hasVisited = sessionStorage.getItem('prx_v');
+                var workerUrl = 'https://prexportpeoplecounter.prafuldesai21.workers.dev/';
+
+                try {
+                    var response = await fetch(workerUrl + '?increment=' + (!hasVisited));
+                    if (!response.ok) throw new Error('HTTP ' + response.status);
+
+                    var data = await response.json();
+                    var count = data.totalVisits ?? data.totalvisit ?? data.value ?? data.count;
+
+                    if (count !== undefined && count !== null) {
+                        valElem.innerText = Number(count).toLocaleString();
+                        sessionStorage.setItem('prx_v', 'true');
+                    }
+                } catch (error) {
+                    console.error('Stats Fetch Error:', error);
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', loadSiteStats);
+            } else {
+                loadSiteStats();
+            }
+        })();
+        </script>
+        <!-- Site Analytics Ends -->
+    </div>
+
+    <div class="site-footer-bottom">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-7 col-12">
+                    <p class="copyright-text mb-0">Copyright © 2026 <a href="#">PRexport</a> - An Import-Export company.</p>
+                </div>
+
+                <div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
+                    <ul class="social-icon">
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-twitter"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-facebook"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-instagram"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="https://www.linkedin.com/in/praful-desai-b818433b0/" class="social-icon-link bi-linkedin"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="https://youtube.com/templatemo" class="social-icon-link bi-youtube"></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
 
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
