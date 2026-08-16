@@ -1276,108 +1276,43 @@
 
                         <a href="#" class="custom-btn btn mt-3">Get Direction</a>
                     </div>
-                </div>     
-            </div>
-
-    <!-- Site Analytics Starts -->
-<div class="site-metrics-wrapper mt-4">
-    <div class="metrics-box">
-        <div class="metrics-head">
-            <span class="status-dot"></span>
-            <h5 class="metrics-title">Live Traffic Analytics</h5>
+                </div>    
+                <!-- Site Analytics Starts -->
+<div id="prx-counter-container" style="display: block !important; visibility: visible !important; margin-top: 1.5rem !important;">
+    <div style="background: #1e293b !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; border-radius: 8px !important; padding: 15px !important; display: inline-block !important; min-width: 200px !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;">
+        <div style="display: flex !important; align-items: center !important; margin-bottom: 8px !important;">
+            <span style="height: 8px; width: 8px; background-color: #28a745; border-radius: 50%; margin-right: 8px; display: inline-block; box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);"></span>
+            <h5 style="color: #94a3b8 !important; font-size: 0.75rem !important; text-transform: uppercase !important; letter-spacing: 1px !important; margin: 0 !important; font-family: sans-serif !important;">Live Traffic Analytics</h5>
         </div>
-        <div class="metrics-body">
-            <span id="site-display-val" class="metrics-val">--</span>
-            <span class="metrics-lbl">Total Visits</span>
+        <div>
+            <span id="site-display-val" style="display: block !important; color: #ffc107 !important; font-size: 1.8rem !important; font-weight: 700 !important; line-height: 1 !important; font-family: 'Courier New', Courier, monospace !important;">1</span>
+            <span style="color: #cbd5e1 !important; font-size: 0.7rem !important; font-family: sans-serif !important;">Total Visits</span>
         </div>
     </div>
 </div>
 
-<style>
-    .site-metrics-wrapper {
-        display: block !important;
-        visibility: visible !important;
-    }
-
-    .metrics-box {
-        background: #1e293b;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 8px;
-        padding: 15px;
-        display: inline-block;
-        min-width: 200px;
-        backdrop-filter: blur(5px);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-
-    .metrics-head {
-        display: flex;
-        align-items: center;
-        margin-bottom: 8px;
-    }
-
-    .metrics-title {
-        color: #94a3b8;
-        font-size: 0.75rem !important;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin: 0 !important;
-    }
-
-    .metrics-val {
-        display: block;
-        color: #ffc107;
-        font-size: 1.8rem;
-        font-weight: 700;
-        line-height: 1;
-        font-family: 'Courier New', Courier, monospace;
-    }
-
-    .metrics-lbl {
-        color: #cbd5e1;
-        font-size: 0.7rem;
-    }
-
-    .status-dot {
-        height: 8px;
-        width: 8px;
-        background-color: #28a745;
-        border-radius: 50%;
-        margin-right: 8px;
-        box-shadow: 0 0 0 rgba(40, 167, 69, 0.4);
-        animation: pulse-green 2s infinite;
-    }
-
-    @keyframes pulse-green {
-        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
-        70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(40, 167, 69, 0); }
-        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
-    }
-</style>
-
 <script>
+(function() {
     async function loadSiteStats() {
-        const valElem = document.getElementById('site-display-val');
+        var valElem = document.getElementById('site-display-val');
         if (!valElem) return;
 
-        const hasVisited = sessionStorage.getItem('prx_v');
-        const workerUrl = 'https://prexportpeoplecounter.prafuldesai21.workers.dev';
+        var hasVisited = sessionStorage.getItem('prx_v');
+        var workerUrl = 'https://prexportpeoplecounter.prafuldesai21.workers.dev/';
 
         try {
-            const response = await fetch(`${workerUrl}?increment=${!hasVisited}`);
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            var response = await fetch(workerUrl + '?increment=' + (!hasVisited));
+            if (!response.ok) throw new Error('HTTP ' + response.status);
             
-            const data = await response.json();
+            var data = await response.json();
+            var count = data.totalVisits ?? data.totalvisit ?? data.value ?? data.count;
 
-            // Handles totalVisits or totalvisit response keys
-            const count = data.totalVisits !== undefined ? data.totalVisits : data.totalvisit;
-
-            if (count !== undefined) {
+            if (count !== undefined && count !== null) {
                 valElem.innerText = Number(count).toLocaleString();
                 sessionStorage.setItem('prx_v', 'true');
             }
         } catch (error) {
-            console.error("Stats Fetch Error:", error);
+            console.error('Stats Fetch Error:', error);
         }
     }
 
@@ -1386,8 +1321,10 @@
     } else {
         loadSiteStats();
     }
+})();
 </script>
 <!-- Site Analytics Ends -->
+            </div>
 
             <div class="site-footer-bottom">
                 <div class="container">
