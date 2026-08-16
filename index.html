@@ -1351,32 +1351,37 @@
                     }
                 </style>
                 
-                <script>
-                    
-                        async function fetchGlobalCount() {
-                            const counterElement = document.getElementById('visitor-count');
-                            
-                            try {
-                                // 1. Call your Cloudflare Function
-                                const response = await fetch('/get-count');
-                                
-                                if (!response.ok) throw new Error('Network response was not ok');
-                                
-                                const data = await response.text();
-                                
-                                // 2. Update the UI with formatted number (e.g., 1,248)
-                                counterElement.innerText = parseInt(data).toLocaleString();
-                                
-                            } catch (error) {
-                                console.error("Counter Error:", error);
-                                // Fallback number so the UI doesn't look broken if the API fails
-                                counterElement.innerText = "1,248"; 
-                            }
-                        }
-                    
-                        // Initialize the fetch when the window loads
-                        window.onload = fetchGlobalCount;
-                </script>
+               <script>
+    async function fetchGlobalCount() {
+        const counterElement = document.getElementById('visitor-count');
+        
+        // Use sessionStorage so multiple refreshes by the same person in one browser tab don't inflate the count
+        const hasVisited = sessionStorage.getItem('prxport_visited');
+        
+        try {
+            // Replace with your actual Cloudflare Worker URL
+            const workerUrl = 'https://prxport-counter.YOUR-SUBDOMAIN.workers.dev';
+            
+            // Pass a flag to only increment on the first visit of the session
+            const response = await fetch(`${workerUrl}?increment=${!hasVisited}`);
+            
+            if (!response.ok) throw new Error('Network error');
+            
+            const data = await response.json();
+            
+            if (data.totalVisits !== undefined) {
+                counterElement.innerText = Number(data.totalVisits).toLocaleString();
+                sessionStorage.setItem('prxport_visited', 'true');
+            }
+        } catch (error) {
+            console.error("Counter Error:", error);
+            // Fallback display if fetch fails
+            counterElement.innerText = "1,248"; 
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchGlobalCount);
+</script>
 
                 <!--Visitor Counter Ends-->
             </div>
