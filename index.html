@@ -1278,112 +1278,116 @@
                     </div>
                 </div>
                 
-                <!--Visitor Counter Starts-->
+                
+<!--Visitor Counter Starts-->
+<div class="visitor-counter-container mt-4">
+    <div class="counter-card">
+        <div class="counter-header">
+            <span class="pulse-dot"></span>
+            <h5 class="counter-title">Live Traffic Analytics</h5>
+        </div>
+        <div class="counter-body">
+            <span id="visitor-count" class="counter-number">1,248</span>
+            <span class="counter-label">Total Visits</span>
+        </div>
+    </div>
+</div>
 
-                <div class="visitor-counter-container mt-4">
-                    <div class="counter-card">
-                        <div class="counter-header">
-                            <span class="pulse-dot"></span>
-                            <h5 class="counter-title">Live Traffic Analytics</h5>
-                        </div>
-                        <div class="counter-body">
-                            <span id="visitor-count" class="counter-number">1,248</span>
-                            <span class="counter-label">Total Visits</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <style>
-                    /* Professional Styling */
-                    .counter-card {
-                        background: rgba(255, 255, 255, 0.05);
-                        border: 1px solid rgba(255, 255, 255, 0.1);
-                        border-radius: 8px;
-                        padding: 15px;
-                        display: inline-block;
-                        min-width: 200px;
-                        backdrop-filter: blur(5px);
-                    }
-                
-                    .counter-header {
-                        display: flex;
-                        align-items: center;
-                        margin-bottom: 8px;
-                    }
-                
-                    .counter-title {
-                        color: #adb5bd; /* Muted gray */
-                        font-size: 0.75rem !important;
-                        text-transform: uppercase;
-                        letter-spacing: 1px;
-                        margin: 0 !important;
-                    }
-                
-                    .counter-number {
-                        display: block;
-                        color: #ffc107; /* Bootstrap Warning Gold */
-                        font-size: 1.8rem;
-                        font-weight: 700;
-                        line-height: 1;
-                        font-family: 'Courier New', Courier, monospace; /* Digital look */
-                    }
-                
-                    .counter-label {
-                        color: #6c757d;
-                        font-size: 0.7rem;
-                    }
-                
-                    /* The Pulsing Dot */
-                    .pulse-dot {
-                        height: 8px;
-                        width: 8px;
-                        background-color: #28a745;
-                        border-radius: 50%;
-                        margin-right: 8px;
-                        box-shadow: 0 0 0 rgba(40, 167, 69, 0.4);
-                        animation: pulse-green 2s infinite;
-                    }
-                
-                    @keyframes pulse-green {
-                        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
-                        70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(40, 167, 69, 0); }
-                        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
-                    }
-                </style>
-                
-               <script>
+<style>
+    /* Professional Styling with High-Contrast Fallbacks */
+    .counter-card {
+        background: #1e293b; /* Solid dark background ensures visibility on light or dark pages */
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        padding: 15px;
+        display: inline-block;
+        min-width: 200px;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .counter-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .counter-title {
+        color: #94a3b8; /* High-contrast muted text */
+        font-size: 0.75rem !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0 !important;
+    }
+
+    .counter-number {
+        display: block;
+        color: #ffc107; /* Bootstrap Warning Gold */
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1;
+        font-family: 'Courier New', Courier, monospace; /* Digital look */
+    }
+
+    .counter-label {
+        color: #cbd5e1;
+        font-size: 0.7rem;
+    }
+
+    /* The Pulsing Dot */
+    .pulse-dot {
+        height: 8px;
+        width: 8px;
+        background-color: #28a745;
+        border-radius: 50%;
+        margin-right: 8px;
+        box-shadow: 0 0 0 rgba(40, 167, 69, 0.4);
+        animation: pulse-green 2s infinite;
+    }
+
+    @keyframes pulse-green {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(40, 167, 69, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+    }
+</style>
+
+<script>
     async function fetchGlobalCount() {
         const counterElement = document.getElementById('visitor-count');
-        
-        // Use sessionStorage so multiple refreshes by the same person in one browser tab don't inflate the count
+        if (!counterElement) return;
+
+        // Prevent counter double-increments on page reloads in the same tab
         const hasVisited = sessionStorage.getItem('prxport_visited');
-        
+
+        const workerUrl = 'https://prexportpeoplecounter.prafuldesai21.workers.dev';
+
         try {
-            // Replace with your actual Cloudflare Worker URL
-            const workerUrl = 'https://prxport-counter.YOUR-SUBDOMAIN.workers.dev';
-            
-            // Pass a flag to only increment on the first visit of the session
             const response = await fetch(`${workerUrl}?increment=${!hasVisited}`);
             
-            if (!response.ok) throw new Error('Network error');
+            if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
             
             const data = await response.json();
-            
+
             if (data.totalVisits !== undefined) {
                 counterElement.innerText = Number(data.totalVisits).toLocaleString();
                 sessionStorage.setItem('prxport_visited', 'true');
             }
         } catch (error) {
-            console.error("Counter Error:", error);
-            // Fallback display if fetch fails
-            counterElement.innerText = "1,248"; 
+            console.error("Counter Fetch Error:", error);
         }
     }
 
-    document.addEventListener('DOMContentLoaded', fetchGlobalCount);
+    // Trigger on initial DOM load or immediately if already loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fetchGlobalCount);
+    } else {
+        fetchGlobalCount();
+    }
 </script>
+<!--Visitor Counter Ends-->
 
-                <!--Visitor Counter Ends-->
+                
             </div>
 
             <div class="site-footer-bottom">
