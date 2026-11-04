@@ -22,21 +22,16 @@
         <header class="site-header">
             <div class="container">
                 <div class="row">
-                    
                     <div class="col-lg-8 col-12 d-flex flex-wrap">
                         <p class="d-flex me-4 mb-0">
                             <i class="bi-geo-alt me-2"></i>
                             401, Bldg 02, Regency Megacity, Mahuva, Gujarat, India - 364290
                         </p>
-
                         <p class="d-flex mb-0">
                             <i class="bi-envelope me-2"></i>
-                            <a href="mailto:info@prxport.com">
-                                info@prxport.com
-                            </a>
+                            <a href="mailto:info@prxport.com">info@prxport.com</a>
                         </p>
                     </div>
-
                     <div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
                         <ul class="social-icon">
                             <li class="social-icon-item">
@@ -47,7 +42,6 @@
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </header>
@@ -69,24 +63,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#top">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#section_2">Our Story</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#section_3">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#section_5">Accreditations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="gallery.html">Gallery</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#section_6">Contact</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#top">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#section_2">Our Story</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#section_3">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#section_5">Accreditations</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#section_6">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -100,145 +82,124 @@
                     <div class="row">
                         <div class="col-lg-12 col-12">
                             <h1 class="text-white mb-2">Product & Sourcing Gallery</h1>
-                            <p class="text-white-50 fs-5 mb-0">High-definition glimpse into our premium produce, sorting line, and export shipments.</p>
+                            <p class="text-white-50 fs-5 mb-0">Detailed view of our premium farm produce, sorting lines, and export grades.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Main Gallery Showcase -->
+            <!-- Interactive Product Showcase Section -->
             <section class="section-padding" id="gallery-section">
                 <div class="container">
                     
                     <div class="row text-center mb-5">
                         <div class="col-12">
-                            <h2>Farm Fresh & Export Produce</h2>
-                            <p>Click on any photo to expand and view high-resolution inspection details.</p>
+                            <h2>Featured Export Products & Sub-Views</h2>
+                            <p>Select any thumbnail below to inspect different angles, grading, and packaging standards.</p>
                         </div>
                     </div>
 
-                    <!-- Responsive Image Grid -->
-                    <div class="row">
-
-                        <!-- Item 1: Drumsticks -->
-                        <div class="col-lg-4 col-md-6 col-12 mb-4">
-                            <div class="custom-block-wrap shadow-sm rounded overflow-hidden bg-white h-100">
-                                <img src="images/gallery/fresh-drumsticks-export-quality.jpg" 
-                                     class="img-fluid" 
-                                     style="height: 250px; width: 100%; object-fit: cover; cursor: pointer;" 
-                                     alt="Fresh Green Drumsticks Export Quality"
-                                     data-bs-toggle="modal" 
-                                     data-bs-target="#imageModal" 
-                                     data-img="images/gallery/fresh-drumsticks-export-quality.jpg"
-                                     data-title="Fresh Green Drumsticks (Moringa Pods)"
+                    <!-- PRODUCT 1: Fresh Green Drumsticks -->
+                    <div class="row mb-5 pb-5 border-bottom align-items-center">
+                        <div class="col-lg-7 col-12 mb-4 mb-lg-0">
+                            <!-- Main Large Display Image -->
+                            <div class="mb-3 shadow-sm rounded overflow-hidden bg-white">
+                                <img id="main-img-1" src="images/gallery/fresh-drumsticks-export-quality.jpg" 
+                                     class="img-fluid w-100" 
+                                     style="height: 380px; object-fit: cover;" 
+                                     alt="Fresh Green Drumsticks Main View"
                                      onerror="this.src='images/product-range/fresh-indian-fruits-and-vegetables-export-quality.jpg'">
-                                <div class="p-3">
-                                    <h5 class="mb-1">Fresh Green Drumsticks</h5>
-                                    <small class="text-muted">Sorted & Farm-Sourced Moringa Pods</small>
+                            </div>
+                            <!-- Sub-images Thumbnails Row -->
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <img src="images/gallery/fresh-drumsticks-export-quality.jpg" class="img-fluid rounded shadow-sm thumbnail-item active-thumb" style="height: 90px; width: 100%; object-fit: cover; cursor: pointer;" onclick="changeImage('main-img-1', this.src)" onerror="this.src='images/product-range/fresh-indian-fruits-and-vegetables-export-quality.jpg'">
+                                </div>
+                                <div class="col-4">
+                                    <img src="images/slide/prexport-fresh-indian-fruits-and-vegetables-export-quality.jpg" class="img-fluid rounded shadow-sm thumbnail-item" style="height: 90px; width: 100%; object-fit: cover; cursor: pointer;" onclick="changeImage('main-img-1', this.src)">
+                                </div>
+                                <div class="col-4">
+                                    <img src="images/product-range/premium-indian-millets-and-superfood-grains-export.jpg" class="img-fluid rounded shadow-sm thumbnail-item" style="height: 90px; width: 100%; object-fit: cover; cursor: pointer;" onclick="changeImage('main-img-1', this.src)">
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Item 2: Tender Coconut -->
-                        <div class="col-lg-4 col-md-6 col-12 mb-4">
-                            <div class="custom-block-wrap shadow-sm rounded overflow-hidden bg-white h-100">
-                                <img src="images/gallery/tender-coconut-fresh-export.jpg" 
-                                     class="img-fluid" 
-                                     style="height: 250px; width: 100%; object-fit: cover; cursor: pointer;" 
-                                     alt="Tender Coconut Sourcing"
-                                     data-bs-toggle="modal" 
-                                     data-bs-target="#imageModal" 
-                                     data-img="images/gallery/tender-coconut-fresh-export.jpg"
-                                     data-title="Tender & Semi-Husked Coconuts"
-                                     onerror="this.src='images/slide/prexport-fresh-indian-fruits-and-vegetables-export-quality.jpg'">
-                                <div class="p-3">
-                                    <h5 class="mb-1">Tender Coconuts</h5>
-                                    <small class="text-muted">Fresh Harvested Green Coconuts</small>
-                                </div>
-                            </div>
+                        <div class="col-lg-5 col-12">
+                            <h3 class="mb-2">Fresh Green Drumsticks</h3>
+                            <h5 class="text-muted mb-3">Sorted & Farm-Sourced Moringa Pods</h5>
+                            <p class="text-muted">Hand-picked directly from fertile regional farms, our drumsticks undergo strict length sorting, washing, and moisture-controlled packaging to maintain optimum freshness during global transit.</p>
+                            <a href="index.html#section_6" class="custom-btn btn mt-2">Inquire for Bulk Order</a>
                         </div>
-
-                        <!-- Item 3: Dehydrated Onion Flakes -->
-                        <div class="col-lg-4 col-md-6 col-12 mb-4">
-                            <div class="custom-block-wrap shadow-sm rounded overflow-hidden bg-white h-100">
-                                <img src="images/slide/prexport-dehydrated-onion-flakes-and-powder-supplier.jpg" 
-                                     class="img-fluid" 
-                                     style="height: 250px; width: 100%; object-fit: cover; cursor: pointer;" 
-                                     alt="Dehydrated Onion Flakes"
-                                     data-bs-toggle="modal" 
-                                     data-bs-target="#imageModal" 
-                                     data-img="images/slide/prexport-dehydrated-onion-flakes-and-powder-supplier.jpg"
-                                     data-title="Dehydrated Onion Flakes & Powder">
-                                <div class="p-3">
-                                    <h5 class="mb-1">Dehydrated Onion Flakes</h5>
-                                    <small class="text-muted">High-grade Mahuva Dehydrated Onion</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 4: Groundnuts & Cereals -->
-                        <div class="col-lg-4 col-md-6 col-12 mb-4">
-                            <div class="custom-block-wrap shadow-sm rounded overflow-hidden bg-white h-100">
-                                <img src="images/product-range/premium-indian-groundnuts-and-cereals-export.jpg" 
-                                     class="img-fluid" 
-                                     style="height: 250px; width: 100%; object-fit: cover; cursor: pointer;" 
-                                     alt="Groundnuts and Cereals"
-                                     data-bs-toggle="modal" 
-                                     data-bs-target="#imageModal" 
-                                     data-img="images/product-range/premium-indian-groundnuts-and-cereals-export.jpg"
-                                     data-title="Indian Groundnuts & Pulses">
-                                <div class="p-3">
-                                    <h5 class="mb-1">Cereals & Groundnuts</h5>
-                                    <small class="text-muted">Grade-A Export Packing</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 5: Millets & Superfoods -->
-                        <div class="col-lg-4 col-md-6 col-12 mb-4">
-                            <div class="custom-block-wrap shadow-sm rounded overflow-hidden bg-white h-100">
-                                <img src="images/product-range/premium-indian-millets-and-superfood-grains-export.jpg" 
-                                     class="img-fluid" 
-                                     style="height: 250px; width: 100%; object-fit: cover; cursor: pointer;" 
-                                     alt="Millets and Grains"
-                                     data-bs-toggle="modal" 
-                                     data-bs-target="#imageModal" 
-                                     data-img="images/product-range/premium-indian-millets-and-superfood-grains-export.jpg"
-                                     data-title="Millets & Superfood Grains">
-                                <div class="p-3">
-                                    <h5 class="mb-1">Millets & Ancient Grains</h5>
-                                    <small class="text-muted">Nutrient-dense Superfood Produce</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 6: Packaging & Logistics -->
-                        <div class="col-lg-4 col-md-6 col-12 mb-4">
-                            <div class="custom-block-wrap shadow-sm rounded overflow-hidden bg-white h-100">
-                                <img src="images/slide/prexport-indian-cereals-and-pulses-premium-export-range.png" 
-                                     class="img-fluid" 
-                                     style="height: 250px; width: 100%; object-fit: cover; cursor: pointer;" 
-                                     alt="Export Container Logistics"
-                                     data-bs-toggle="modal" 
-                                     data-bs-target="#imageModal" 
-                                     data-img="images/slide/prexport-indian-cereals-and-pulses-premium-export-range.png"
-                                     data-title="Export Container Logistics">
-                                <div class="p-3">
-                                    <h5 class="mb-1">Export Container Loading</h5>
-                                    <small class="text-muted">Seaport Direct Dispatch</small>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <!-- Video Showcase Section -->
+                    <!-- PRODUCT 2: Tender Coconuts -->
+                    <div class="row mb-5 pb-5 border-bottom align-items-center">
+                        <div class="col-lg-7 col-12 mb-4 mb-lg-0 order-lg-2">
+                            <!-- Main Large Display Image -->
+                            <div class="mb-3 shadow-sm rounded overflow-hidden bg-white">
+                                <img id="main-img-2" src="images/gallery/tender-coconut-fresh-export.jpg" 
+                                     class="img-fluid w-100" 
+                                     style="height: 380px; object-fit: cover;" 
+                                     alt="Tender Coconuts Main View"
+                                     onerror="this.src='images/slide/prexport-fresh-indian-fruits-and-vegetables-export-quality.jpg'">
+                            </div>
+                            <!-- Sub-images Thumbnails Row -->
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <img src="images/gallery/tender-coconut-fresh-export.jpg" class="img-fluid rounded shadow-sm thumbnail-item" style="height: 90px; width: 100%; object-fit: cover; cursor: pointer;" onclick="changeImage('main-img-2', this.src)" onerror="this.src='images/slide/prexport-fresh-indian-fruits-and-vegetables-export-quality.jpg'">
+                                </div>
+                                <div class="col-4">
+                                    <img src="images/product-range/fresh-indian-fruits-and-vegetables-export-quality.jpg" class="img-fluid rounded shadow-sm thumbnail-item" style="height: 90px; width: 100%; object-fit: cover; cursor: pointer;" onclick="changeImage('main-img-2', this.src)">
+                                </div>
+                                <div class="col-4">
+                                    <img src="images/slide/prexport-indian-cereals-and-pulses-premium-export-range.png" class="img-fluid rounded shadow-sm thumbnail-item" style="height: 90px; width: 100%; object-fit: cover; cursor: pointer;" onclick="changeImage('main-img-2', this.src)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-12 order-lg-1">
+                            <h3 class="mb-2">Tender Coconuts</h3>
+                            <h5 class="text-muted mb-3">Fresh Harvested Green & Semi-Husked Coconuts</h5>
+                            <p class="text-muted">Packed with natural electrolytes and sweet water, our tender coconuts are carefully trimmed and inspected for shell integrity and maximum fluid volume before export dispatch.</p>
+                            <a href="index.html#section_6" class="custom-btn btn mt-2">Inquire for Bulk Order</a>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCT 3: Dehydrated Onion Flakes -->
+                    <div class="row mb-5 pb-5 border-bottom align-items-center">
+                        <div class="col-lg-7 col-12 mb-4 mb-lg-0">
+                            <!-- Main Large Display Image -->
+                            <div class="mb-3 shadow-sm rounded overflow-hidden bg-white">
+                                <img id="main-img-3" src="images/slide/prexport-dehydrated-onion-flakes-and-powder-supplier.jpg" 
+                                     class="img-fluid w-100" 
+                                     style="height: 380px; object-fit: cover;" 
+                                     alt="Dehydrated Onion Flakes Main View">
+                            </div>
+                            <!-- Sub-images Thumbnails Row -->
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <img src="images/slide/prexport-dehydrated-onion-flakes-and-powder-supplier.jpg" class="img-fluid rounded shadow-sm thumbnail-item" style="height: 90px; width: 100%; object-fit: cover; cursor: pointer;" onclick="changeImage('main-img-3', this.src)">
+                                </div>
+                                <div class="col-4">
+                                    <img src="images/product-range/premium-indian-dry-and-dehydrated-exports.jpg" class="img-fluid rounded shadow-sm thumbnail-item" style="height: 90px; width: 100%; object-fit: cover; cursor: pointer;" onclick="changeImage('main-img-3', this.src)" onerror="this.src='images/slide/prexport-dehydrated-onion-flakes-and-powder-supplier.jpg'">
+                                </div>
+                                <div class="col-4">
+                                    <img src="images/product-range/premium-indian-processed-foods.jpg" class="img-fluid rounded shadow-sm thumbnail-item" style="height: 90px; width: 100%; object-fit: cover; cursor: pointer;" onclick="changeImage('main-img-3', this.src)" onerror="this.src='images/slide/prexport-dehydrated-onion-flakes-and-powder-supplier.jpg'">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-12">
+                            <h3 class="mb-2">Dehydrated Onion Flakes & Powder</h3>
+                            <h5 class="text-muted mb-3">High-Grade Mahuva Dehydrated Processing</h5>
+                            <p class="text-muted">Sourced directly from the agricultural hub of Mahuva, Gujarat, our dehydrated white and red onion flakes offer exceptional shelf-life, rich aroma, and pure flavor profiles for global culinary markets.</p>
+                            <a href="index.html#section_6" class="custom-btn btn mt-2">Inquire for Bulk Order</a>
+                        </div>
+                    </div>
+
+                    <!-- Video Coverage Section -->
                     <div class="row mt-5">
                         <div class="col-12 text-center mb-4">
                             <h3>Video Coverage</h3>
                             <p>Watch live footage of raw material sourcing and factory packaging.</p>
                         </div>
-
                         <div class="col-lg-8 col-12 mx-auto">
                             <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
                                 <iframe src="https://www.youtube.com/embed/videoseries?list=PL" title="PREXPORT Video Channel" allowfullscreen></iframe>
@@ -305,37 +266,16 @@
             </div>
         </footer>
 
-        <!-- Lightbox Pop-Up Modal -->
-        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel">Product View</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img src="" id="modalImageDisplay" class="img-fluid rounded" alt="Product Image Detail">
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- JS FILES -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/custom.js"></script>
 
         <script>
-            // Script to dynamically update modal image and title on click
-            const imageModal = document.getElementById('imageModal');
-            imageModal.addEventListener('show.bs.modal', function (event) {
-                const triggerElement = event.relatedTarget;
-                const imgSrc = triggerElement.getAttribute('data-img');
-                const imgTitle = triggerElement.getAttribute('data-title');
-                
-                document.getElementById('modalImageDisplay').src = imgSrc;
-                document.getElementById('imageModalLabel').innerText = imgTitle || 'Product Preview';
-            });
+            // Simple JavaScript function to switch main image when sub-thumbnail is clicked
+            function changeImage(mainImageId, newSrc) {
+                document.getElementById(mainImageId).src = newSrc;
+            }
         </script>
     </body>
 </html>
